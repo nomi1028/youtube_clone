@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import VideoThumb from "./VideoThumb";
+import History from "./History";
 import "./style.css";
 import { useEffect } from "react";
 
@@ -11,12 +11,13 @@ const Main = () => {
     getData();
   }, []);
   async function getData() {
-    const res = await axios.get(`http://localhost:5000/get`);
+    const res = await axios.get(`http://localhost:5000/like`);
     // console.log(res.data);
     setUsers(res.data);
     isloading(false);
-    console.log(users.result);
+    
   }
+  console.log('user');
   return (
     <>
       {loading ? (
@@ -24,7 +25,8 @@ const Main = () => {
       ) : (
         <div className="main">
           {users.result.map((n) => (
-            <VideoThumb key={n._id} title={n.title} img={n.img} id={n._id}/>
+            
+            <History key={n._id} title={n.title} img={n.img} id={n._id}/>
           ))}
         </div>
       )}

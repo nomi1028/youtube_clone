@@ -2,14 +2,20 @@ import React from 'react'
 import { BiHome } from "react-icons/bi";
 import { MdOutlineWhatshot,MdOutlineSubscriptions } from "react-icons/md";
 import "./style.css";
+import { useNavigate} from 'react-router-dom';
 
 const Sidebar = () => {
+  let navigate = useNavigate();
+    const history=()=>{
+        navigate('/history');
+
+    }
   return (
     <div className='sidebar'>
         <div className='sidebar_buttons'>
-            <div className='sidebar__btn sidebar__btn--active'>
-            <BiHome className='sidebar-icon'/>
-            <p>Home</p>
+            <div className='sidebar__btn sidebar__btn--active' onClick={history}>
+            <BiHome className='sidebar-icon' />
+            <p>History</p>
             
 
             </div>

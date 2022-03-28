@@ -9,8 +9,8 @@ import {BiUserCircle} from "react-icons/bi";
 
 
 
-const VideoThumb = (props) => {
-    // console.log({props})
+const History = (props) => {
+    // console.log(props,'like')
  
     let navigate = useNavigate();
     const handler=(id)=>{
@@ -55,4 +55,4 @@ const VideoThumb = (props) => {
   )
 }
 
-export default VideoThumb
+export default History
