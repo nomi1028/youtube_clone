@@ -6,6 +6,27 @@
     width: 100%;
     overflow-x: hidden;
 }
+.chips{
+    display: flex;
+    /* flex-wrap: wrap; */
+    overflow-y: auto;
+    max-height: 90vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+.circle{
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color:#ccc;
+    color:black;
+    border-radius: 20px;
+    margin: 10px;
+    border-color: black;
+    border: 1px;
+    cursor: pointer;
+}
 .videothumb_thumbnail{
     width: inherit;
     height: 137px;

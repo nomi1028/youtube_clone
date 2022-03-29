@@ -8,6 +8,7 @@ const Uploade = () => {
   const [names1,setName1]=useState('');
   
   const [file2,setfile2]=useState('');
+  const [type,settype]=useState('');
 
   // const [user, setUser] = useState({
   //   name1: names1,
@@ -24,7 +25,7 @@ const Uploade = () => {
   let formData = new FormData();
   formData.append('title', names1); 
    
-  
+  formData.append('type', type); 
   formData.append('img', file2); 
 
   const config = {     
@@ -78,6 +79,16 @@ const Uploade = () => {
               name="name1"
               value={names1}
               onChange={(e)=>setName1(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              placeholder="Enter video type"
+              name="type"
+              value={type}
+              onChange={(e)=>settype(e.target.value)}
             />
           </div>
           

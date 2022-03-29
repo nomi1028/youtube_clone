@@ -17,11 +17,15 @@ const Header = () => {
         navigate('/insert');
 
     }
+    const Mainpage=()=>{
+      navigate('/');
+
+  }
   return (
     <div className="header">
   <div className="header_left">
   <BiMenu className="header_menuicon"/>
-  <img className="header_logo" src={logo} />
+  <img className="header_logo" src={logo} onClick={Mainpage} />
 </div>
 <form className="header_center">
 <input className="header_input" placeholder="Search" onChange={(e)=>setSearchedWord(e.target.value)} value={searchedWord}/>

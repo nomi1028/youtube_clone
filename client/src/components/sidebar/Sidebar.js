@@ -10,6 +10,11 @@ const Sidebar = () => {
         navigate('/history');
 
     }
+    
+    const likes=()=>{
+        navigate('/like');
+
+    }
   return (
     <div className='sidebar'>
         <div className='sidebar_buttons'>
@@ -19,9 +24,9 @@ const Sidebar = () => {
             
 
             </div>
-            <div className='sidebar__btn sidebar__btn--active'>
+            <div className='sidebar__btn sidebar__btn--active' onClick={likes}>
             <MdOutlineWhatshot className='sidebar-icon'/>
-            <p>Trending</p>
+            <p>Like video</p>
             
 
             </div>

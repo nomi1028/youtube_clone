@@ -19,11 +19,15 @@ const Watch = () => {
         setvideo(res.data)
         // console.log(res.data.actorData.title,'responcedata')
             
-         
+        const resp = await axios.post(`http://localhost:5000/history`,{
+            img1: res.data.actorData.img,
+            title1: res.data.actorData.title
+          }
+        )
          isloading(false);
-         if(!loading){
-            postData();
-         }
+        //  if(!loading){
+        //     postData();
+        //  }
 
         console.log(res.data);
          
@@ -35,36 +39,18 @@ const Watch = () => {
     
 
     };
-    async function postData() {
-        
-
-        
-        const resp = await axios.post(`http://localhost:5000/history`,{
-            img1: img,
-            title1: title
-          }
-        )
-        
-        console.log(img,'loading')
-        
-        
-        
-
-        
-        
-        
-        // console.log(img,'img')
-        // console.log(title,'title')
-        // console.log(resp.data,'postdata')
-      
-        
-        
-
-       
+   
     
-
-    };
-    async function liked() {
+    useEffect(()=>{
+        
+        
+        
+          
+        getData();
+       
+        
+      },[]);
+      async function liked() {
         const resp = await axios.post(`http://localhost:5000/liked`,{
             img1: img,
             title1: title
@@ -85,15 +71,6 @@ const Watch = () => {
     
 
     };
-    useEffect(()=>{
-        
-        
-        
-          
-        getData();
-       
-        
-      },[]);
     
 
       
