@@ -53,6 +53,13 @@ const userSchema = new mongoose.Schema({
 var data = mongoose.model("youtube", userSchema);
 var history = mongoose.model("history", userSchema);
 var liked = mongoose.model("liked", userSchema);
+const userLog = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
+  name: String,
+  email: String,
+  pasword: String,
+});
+var userdata = mongoose.model("userlog",userLog );
 
 // app.post("/i", (req, res, next) => {
 //   console.log("donee");
@@ -245,6 +252,55 @@ app.get("/type/:type", (req, res, next) => {
       });
     });
 });
+app.post("/Signup", async(req, res) => {
+  
+  const isExist = await userdata.findOne({ email: req.body.email });
+  if (isExist) {
+    res.json({ message: "Email is already exist" });
+  } else {
+
+  
+  const usereDatas = new userdata({
+    _id: new mongoose.Types.ObjectId(),
+    name:req.body.name,
+    email:req.body.email,
+    pasword:req.body.pasword
+  });
+  usereDatas
+    .save()
+    .then((result) => {
+      console.log(result);
+      res.status(200).json({
+        result,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });}
+})
+app.post("/login", async(req, res) => {
+  
+  userdata.findOne({ email: req.body.email },(err,user)=>{
+    if(user){
+     
+      if(req.body.pasword===user.pasword){
+        res.send({message:"login successfullly",user:user})
+      }
+      else{
+        res.send({message:"pasword not matched"})
+      }
+
+    }
+    else{
+      res.send({message:"user not registered"})
+    }
+  })
+ 
+})
+
 
 app.listen(5000, function () {
   console.log("listening on 5000");

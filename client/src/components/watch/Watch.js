@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import videourl from '../../assests/001 Introduction.mp4'
+import videourl from '../../assests/001 Introduction.mp4'
 import {IoThumbsUpSharp,IoThumbsDownSharp} from "react-icons/io5";
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
@@ -86,14 +86,14 @@ const Watch = () => {
    <div className='Watch'>
        <div className='Watch_wrap'>
            <div className='watch_left'>
-               {/* <video className='watch_video' autoPlay controls>
+               <video className='watch_video' autoPlay controls>
                    <source src={videourl} type="video/mp4" />
-               </video> */}
-               <img
+               </video>
+               {/* <img
         className='videothumb_thumbnail'
         src={video.actorData.img}
        
-    />
+    /> */}
                <div className='watch_leftbtn'>
                <h1 className='watch_title'>
                    {video.actorData.title}
